@@ -57,6 +57,7 @@ function(input, output, session) {
 			draw.radial.line(0, 1, deg = 360 - (gdat$bearing[1] - 90), col = "black", lwd = 5, expand = TRUE)
 			draw.circle(0, 0, .4, col = "white")
 			text(0, 0.25, as.character(gdat5$bearing[1]), cex = 4)
+			text(0, 0.25, as.character(gdat5$strength[1]), cex = 4)
 	
 			if(!is.null(gdat5$deployid)) text(0, 0, as.character(gdat5$deployid[1]), cex = 4, col = colors[cols[1]])
 
