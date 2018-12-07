@@ -69,7 +69,7 @@ function(input, output, session) {
 	})
 	
 	getlogpath <- reactive({
-		out <- parseFilePaths(volumes, input$logpath)
+		out <- shinyFiles::parseFilePaths(volumes, input$logpath)
 		if(length(out) == 0) {
 			out <- NULL
 		} else {			
