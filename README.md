@@ -42,9 +42,9 @@ you can also construct one easily in R and save it as a csv.
 pttkey <- data.frame(PTT = c("111111", "222222"), HEX = c("0A1FB2", "D7914E1"), DEPLOYID = c("test1", "test2")
 ```
 
-note you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it.
+note: you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it.
 
- one word of caution if you are opening these csv files in excel. if your hexhas an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
+one word of **caution** if you are opening these csv files in excel. if your hexhas an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
 
 |PTT|HEX|DEPLOYID|
 |----|----|----|
