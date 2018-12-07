@@ -1,7 +1,5 @@
 ---
-output:
-    html_document:
-        keep_md: true
+output: html_document
 ---
 
 [repository](https://github.com/williamcioffi/monitorgonio) | [sattagutils](https://williamcioffi.github.io/sattagutils) | [io home](https://williamcioffi.github.io)
