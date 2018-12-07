@@ -7,7 +7,7 @@
 make_bat_file <- function(outfile) {
   if(missing(outfile)) stop("gotta tell me where to put the .bat file...")
 
-  rpath <- file.path(R.home("bin"), "Rscript.exe")
+  rpath <- file.path(R.home("bin"), "Rscript.exe --vanilla")
   runfilepath <- shinydir <- system.file("shiny-guts", package = "monitorgonio")
   if(shinydir == "") stop("couldn't find shiny app...")
   

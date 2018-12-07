@@ -5,7 +5,7 @@
 #' @export
 
 make_sh_file <- function(outfile = "~/Desktop/monitorgonio.sh") {
-  rpath <- file.path(R.home("bin"), "Rscript")
+  rpath <- file.path(R.home("bin"), "Rscript --vanilla")
   runfilepath <- shinydir <- system.file("shiny-guts", package = "monitorgonio")
   if(shinydir == "") stop("couldn't find shiny app...")
   
