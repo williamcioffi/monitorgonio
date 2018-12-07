@@ -5,14 +5,14 @@
 #' @export
 
 make_sh_file <- function(outfile = "~/Desktop/monitorgonio.sh") {
-  rpath <- file.path(R.home("bin"), "R")
+  rpath <- file.path(R.home("bin"), "Rscript")
   runfilepath <- shinydir <- system.file("shiny-guts", package = "monitorgonio")
   if(shinydir == "") stop("couldn't find shiny app...")
   
   runfile <- file.path(runfilepath, "run.R")
   
   header <- "#!/bin/sh"
-  command <- paste0(rpath, " CMD BATCH ", runfile)
+  command <- paste0(rpath, " ", runfile)
   cat(header, command, file = outfile, sep = "\n")
   
   if(file.exists(outfile))
