@@ -27,30 +27,30 @@ run_monitorgonio()
 or you can automatically generate monitorgonio.bat which will run the shiny app for you.
 
 ```r
-monitorgonio::make_bat_file()
+monitorgonio::make_bat_file("~/Desktop/monitorgonio.bat")
 ```
 
-by default the file are output to your desktop. You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
+be careful for some reason on windows ~ is interpreted as the onedrive... You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
 
 ```r
 pttkey <- monitorgonio::get_pttkey_example()
 write.table(pttkey, file = "~/Desktop/pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
-you can also construct one easily in R and save it as a csv.
+you can also construct one easily in R and save it as a csv as above.
 ```r
 pttkey <- data.frame(PTT = c("111111", "222222"), HEX = c("0A1FB2", "D7914E1"), DEPLOYID = c("test1", "test2")
 ```
 
 note: you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it.
 
-one word of **caution** if you are opening these csv files in excel. if your hexhas an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
+one word of **caution** if you are opening these csv files in excel. if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
 
 |PTT|HEX|DEPLOYID|
 |----|----|----|
 |171171|1.23E+06|test1|
 
-the best solution is don't use excel it is a terrible csv editor. but many folks are most confortable with editing csvs in excel so in the past i've added a notes column that starts with text s othe real hex can be recovered if someone accidentally edits it in excel and saves the result.
+the best solution is don't use excel because it is a terrible csv editor. but many folks are most confortable with editing csvs in excel so in the past i've added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.
 
 |PTT|HEX|DEPLOYID|notes|
 |----|----|----|----|
@@ -70,7 +70,7 @@ now make sure monitorgonio is running and go to the shiny window and select both
 finally run the test with: 
 
 ```r 
-monitorgonio::simulate_gonio()
+monitorgonio::simulate_gonio("~/testlog")
 ```
 
 and you should see hits appearing in the monitorgonio shiny window.
