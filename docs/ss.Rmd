@@ -1,0 +1,9 @@
+---
+ouput: html_document
+---
+
+![](images/loaddata.png)
+
+
+![](images/inaction.gif)
+

@@ -5,12 +5,14 @@ output: html_document
 [repository](https://github.com/williamcioffi/monitorgonio) | [sattagutils](https://williamcioffi.github.io/sattagutils) | [io home](https://williamcioffi.github.io)
 
 ### monitorgonio
-a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. 
+a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. the Goniometer's screen is tiny, but it can be used in hyperterminal mode when connected to a laptop on the boat and writes output to a simple text file log. the shiny app just easedrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. in addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.
 
 **WARNING:** still very rough. use at own risk.
 
+[![monitorgonio screenshot](images/inaction.gif)](ss.html)
+
 ### quick guide
-install the package:
+install the package. dependencies are `shiny`, `shinyFiles`, `plotrix`.
 
 ```{r, eval = FALSE}
 devtools::install_github("monitorgonio")
@@ -19,8 +21,7 @@ devtools::install_github("monitorgonio")
 you can run monitorgonio from an interactive r session:
 
 ```{r, eval = FALSE}
-library(monitorgonio)
-run_monitorgonio()
+monitorgonio::run_monitorgonio()
 ```
 
 or you can automatically generate monitorgonio.bat which will run the shiny app for you.
@@ -29,20 +30,24 @@ or you can automatically generate monitorgonio.bat which will run the shiny app 
 monitorgonio::make_bat_file("monitorgonio.bat")
 ```
 
-be careful for some reason on windows ~ is interpreted as the onedrive... You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
+be careful for some reason on windows '~' is interpreted as documents or the onedrive... You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
 
-```{r, eval = FALSE}
-pttkey <- monitorgonio::get_pttkey_example()
-write.table(pttkey, file = "pttkey.csv", sep = ",", row.names = FALSE)
+```{r}
+# a template pttkey comes with the package
+data(pttkey, package = "monitorgonio")
+pttkey
 ```
+you can also construct one easily in R and save it as a csv.
 
-you can also construct one easily in R and save it as a csv as above.
 ```{r, eval = FALSE}
 pttkey <- data.frame(
 	PTT = c("111111", "222222"),
  	HEX = c("0A1FB2", "D7914E1"), 
 	DEPLOYID = c("test1", "test2")
 )
+
+# save to file
+write.table(pttkey, file = "pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
 note: you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it.
@@ -60,12 +65,12 @@ the best solution is don't use excel because it is a terrible csv editor. but ma
 171171|1.23E+06|test1|hex is 12345E2|
 
 ### testing 
-you can test monitorgonio a bit even if you don't have a goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```run_monitorgonio()``` and then open a new instance of R.
+you can test monitorgonio a bit even if you don't have a Goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```run_monitorgonio()``` and then open a new instance of R.
 
-in this new instance of R first you'll need to save the pttkey from ```get_pttkey_example()``` as above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the goniometer. but for now you can just create an empty file:
+in this new instance of R first you'll need to save the pttkey from above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the Goniometer. but for now you can just create an empty file:
 
 ```{r, eval = FALSE}
-cat("", file = "~/testlog")
+cat("", file = "testlog")
 ```
 
 now make sure monitorgonio is running and go to the shiny window and select both the log file and the pttkey using the buttons and navigating to where you saved them.
@@ -73,7 +78,7 @@ now make sure monitorgonio is running and go to the shiny window and select both
 finally run the test with: 
 
 ```{r, eval = FALSE} 
-monitorgonio::simulate_gonio("~/testlog")
+monitorgonio::simulate_gonio("testlog")
 ```
 
 and you should see hits appearing in the monitorgonio shiny window.

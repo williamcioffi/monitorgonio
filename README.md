@@ -13,17 +13,16 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 - should make this a package which can export the batch script automatically? is that a bad practice?
 
 ### ultra quick guide
-install the package:
+install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`.
 
 ```r
 devtools::install_github("monitorgonio")
 ```
 
-you can run monitorgonio from an interactive r session or use ```make_bat_file()``` to make a shortcut.
+you can run monitorgonio from an interactive r session or use `make_bat_file()` to make a shortcut.
 
 ```r
-library(monitorgonio)
-run_monitorgonio()
+monitorgonio::run_monitorgonio()
 ```
 
 more details in the [slightly less quick guide](https://williamcioffi.github.io/monitorgonio)
