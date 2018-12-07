@@ -11,7 +11,7 @@ navbarPage("monitorgonio",
 				width = "255"
 			),
 			h5("choose a log file:"),
-			shinyFilesButton('logpath', 'log file', 'Please select a log file', FALSE),
+			shinyFiles::shinyFilesButton('logpath', 'log file', 'Please select a log file', FALSE),
 			textOutput('path'),
 			
 			hr(),

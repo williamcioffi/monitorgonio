@@ -26,7 +26,7 @@ function(input, output, session) {
 			ylim = c(-1.1, 1.1), xlim = c(-1.1, 1.1), 
 			axes = FALSE, xlab = "", ylab = ""
 		)
-		draw.circle(0, 0, 1)
+		plotrix::draw.circle(0, 0, 1)
 		alphadegs <- seq(0, 315, by = 45)
 		alpharads <- alphadegs * pi / 180
 
@@ -51,10 +51,10 @@ function(input, output, session) {
 			}
 							
 			for(i in 1:nrow(gdat5)) {
-				draw.radial.line(0, 1, deg = 360 - (gdat$bearing[i] - 90), col = colors[cols[i]], lwd = 20, expand = TRUE)
+				plotrix::draw.radial.line(0, 1, deg = 360 - (gdat$bearing[i] - 90), col = colors[cols[i]], lwd = 20, expand = TRUE)
 			}
-			draw.radial.line(0, 1, deg = 360 - (gdat$bearing[1] - 90), col = "black", lwd = 5, expand = TRUE)
-			draw.circle(0, 0, .4, col = "white")
+			plotrix::draw.radial.line(0, 1, deg = 360 - (gdat$bearing[1] - 90), col = "black", lwd = 5, expand = TRUE)
+			plotrix::draw.circle(0, 0, .4, col = "white")
 			text(0, 0.25, as.character(gdat5$bearing[1]), cex = 4)
 			text(0, -0.25, as.character(gdat5$strength[1]), cex = 4)
 	
