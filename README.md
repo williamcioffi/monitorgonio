@@ -16,5 +16,5 @@ edit these files:
 - *pttkey.csv*: edit this file to include DeployID/friend names and ptt hex codes for the platforms you want to track. when you run the shiny app you can select this file and/or reload it if you make updates.
 
 ### extras
-- *simulate.sh, gonio\_sim\_log.txt, gonio|_source\_log.txt*: these are testing files and a bash script for simulating message arrival for debugging, etc.
+- *simulate.sh, gonio\_sim\_log.txt, gonio\_source\_log.txt*: these are testing files and a bash script for simulating message arrival for debugging, etc.
 
