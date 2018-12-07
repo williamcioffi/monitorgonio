@@ -1,5 +1,4 @@
-# # ui
-library(shinyFiles)
+# ui
 
 navbarPage("monitorgonio",
 	tabPanel("load data",

@@ -1,5 +1,4 @@
 # server
-library(plotrix)
 
 pathname <- vector()
 snapshot <- vector()
@@ -15,7 +14,7 @@ function(input, output, session) {
 	})
 	
 	volumes <- c('file system' = "/")
-	shinyFileChoose(input, 'logpath', roots = volumes, session = session)
+	shinyFiles::shinyFileChoose(input, 'logpath', roots = volumes, session = session)
 	output$path <- renderText({
 		getlogpath()
 	})
@@ -60,7 +59,7 @@ function(input, output, session) {
 			text(0, 0.25, as.character(gdat5$strength[1]), cex = 4)
 	
 			if(!is.null(gdat5$deployid)) text(0, 0, as.character(gdat5$deployid[1]), cex = 4, col = colors[cols[1]])
-
+		}
 	}, height = 600, width = 600)
 	
 	output$gtab <- renderTable({
