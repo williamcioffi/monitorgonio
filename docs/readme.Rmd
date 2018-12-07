@@ -14,37 +14,32 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 ### quick guide
 install the package:
 
-
-```r
+```{r, eval = FALSE}
 devtools::install_github("monitorgonio")
 ```
 
 you can run monitorgonio from an interactive r session:
 
-
-```r
+```{r, eval = FALSE}
 library(monitorgonio)
 run_monitorgonio()
 ```
 
 or you can automatically generate monitorgonio.bat which will run the shiny app for you.
 
-
-```r
+```{r, eval = FALSE}
 monitorgonio::make_bat_file("~/Desktop/monitorgonio.bat")
 ```
 
 be careful for some reason on windows ~ is interpreted as the onedrive... You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
 
-
-```r
+```{r, eval = FALSE}
 pttkey <- monitorgonio::get_pttkey_example()
 write.table(pttkey, file = "~/Desktop/pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
 you can also construct one easily in R and save it as a csv as above.
-
-```r
+```{r, eval = FALSE}
 pttkey <- data.frame(
 	PTT = c("111111", "222222"),
  	HEX = c("0A1FB2", "D7914E1"), 
@@ -71,8 +66,7 @@ you can test monitorgonio a bit even if you don't have a goniometer connected or
 
 in this new instance of R first you'll need to save the pttkey from ```get_pttkey_example()``` as above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the goniometer. but for now you can just create an empty file:
 
-
-```r
+```{r, eval = FALSE}
 cat("", file = "~/testlog")
 ```
 
@@ -80,8 +74,7 @@ now make sure monitorgonio is running and go to the shiny window and select both
 
 finally run the test with: 
 
-
-```r
+```{r, eval = FALSE} 
 monitorgonio::simulate_gonio("~/testlog")
 ```
 
