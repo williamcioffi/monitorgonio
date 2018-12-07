@@ -13,18 +13,22 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 ### quick guide
 install the package:
 
-```devtools::install_github("monitorgonio")```
+```r
+devtools::install_github("monitorgonio")
+```
 
 you can run monitorgonio from an interactive r session:
 
-```
+```r
 library(monitorgonio)
 run_monitorgonio()
 ```
 
 or you can automatically generate monitorgonio.bat which will run the shiny app for you.
 
-```monitorgonio::make_bat_file()```
+```r
+monitorgonio::make_bat_file()
+```
 
 by default the file are output to your desktop. You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
 
@@ -34,11 +38,13 @@ write.table(pttkey, file = "~/Desktop/pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
 you can also construct one easily in R and save it as a csv.
-```pttkey <- data.frame(PTT = c("111111", "222222"), HEX = c("0A1FB2", "D7914E1"), DEPLOYID = c("test1", "test2")```
+```r
+pttkey <- data.frame(PTT = c("111111", "222222"), HEX = c("0A1FB2", "D7914E1"), DEPLOYID = c("test1", "test2")
+```
 
 note you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it.
 
- one word of caution if you are opening these csv files in excel. if your hexhas an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into $12345 \cdot 10^2$ by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
+ one word of caution if you are opening these csv files in excel. if your hexhas an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
 
 |PTT|HEX|DEPLOYID|
 |----|----|----|
@@ -51,17 +57,21 @@ the best solution is don't use excel it is a terrible csv editor. but many folks
 171171|1.23E+06|test1|hex is 12345E2|
 
 ### testing 
-you can test monitorgonio a bit even if you don't have a goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```r, eval = FALSE} run_monitorgonio()``` and then open a new instance of R.
+you can test monitorgonio a bit even if you don't have a goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```r run_monitorgonio()``` and then open a new instance of R.
 
-in this new instance of R first you'll need to save the pttkey from ```r, eval = FALSE} get_pttkey_example()``` as above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the goniometer. but for now you can just create an empty file:
+in this new instance of R first you'll need to save the pttkey from `r get_pttkey_example()` as above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the goniometer. but for now you can just create an empty file:
 
-```cat("", file = "~/testlog")```
+```r
+cat("", file = "~/testlog")
+```
 
 now make sure monitorgonio is running and go to the shiny window and select both the log file and the pttkey using the buttons and navigating to where you saved them.
 
 finally run the test with: 
 
-```monitorgonio::simulate_gonio()```
+```r 
+monitorgonio::simulate_gonio()
+```
 
 and you should see hits appearing in the monitorgonio shiny window.
 
