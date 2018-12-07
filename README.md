@@ -57,9 +57,9 @@ the best solution is don't use excel it is a terrible csv editor. but many folks
 171171|1.23E+06|test1|hex is 12345E2|
 
 ### testing 
-you can test monitorgonio a bit even if you don't have a goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```r run_monitorgonio()``` and then open a new instance of R.
+you can test monitorgonio a bit even if you don't have a goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```run_monitorgonio()``` and then open a new instance of R.
 
-in this new instance of R first you'll need to save the pttkey from `r get_pttkey_example()` as above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the goniometer. but for now you can just create an empty file:
+in this new instance of R first you'll need to save the pttkey from ```get_pttkey_example()``` as above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the goniometer. but for now you can just create an empty file:
 
 ```r
 cat("", file = "~/testlog")
