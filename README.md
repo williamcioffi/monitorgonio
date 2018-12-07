@@ -17,7 +17,7 @@ install the package:
 
 you can run monitorgonio from an interactive r session:
 
-```{r, eval = FALSE}
+```
 library(monitorgonio)
 run_monitorgonio()
 ```
@@ -28,7 +28,8 @@ or you can automatically generate monitorgonio.bat which will run the shiny app 
 
 by default the file are output to your desktop. You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
 
-```pttkey <- monitorgonio::get_pttkey_example()
+```r
+pttkey <- monitorgonio::get_pttkey_example()
 write.table(pttkey, file = "~/Desktop/pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
