@@ -1,6 +1,8 @@
 ### monitorgonio
 a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. 
 
+[quick guide](https://williamcioffi.gitub.io/monitorgonio) to installing and getting started.
+
 **WARNING:** still very rough. use at own risk.
 
 ### feature requests
@@ -10,7 +12,7 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 - play a sound when there is a new hit
 - should make this a package which can export the batch script automatically? is that a bad practice?
 
-### quick guide
+### ultra quick guide
 install the package:
 
 ```r

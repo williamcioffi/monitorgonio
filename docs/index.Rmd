@@ -26,14 +26,14 @@ run_monitorgonio()
 or you can automatically generate monitorgonio.bat which will run the shiny app for you.
 
 ```{r, eval = FALSE}
-monitorgonio::make_bat_file("~/Desktop/monitorgonio.bat")
+monitorgonio::make_bat_file("monitorgonio.bat")
 ```
 
 be careful for some reason on windows ~ is interpreted as the onedrive... You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
 
 ```{r, eval = FALSE}
 pttkey <- monitorgonio::get_pttkey_example()
-write.table(pttkey, file = "~/Desktop/pttkey.csv", sep = ",", row.names = FALSE)
+write.table(pttkey, file = "pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
 you can also construct one easily in R and save it as a csv as above.
