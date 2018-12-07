@@ -25,5 +25,3 @@ you can run monitorgonio from an interactive r session or use `make_bat_file()` 
 monitorgonio::run_monitorgonio()
 ```
 
-more details in the [slightly less quick guide](https://williamcioffi.github.io/monitorgonio)
-
