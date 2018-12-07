@@ -12,4 +12,3 @@ run_monitorgonio  <- function() {
 
 	shiny::runApp(shinydir, display.mode = "normal", launch.browser = TRUE)
 }
-
