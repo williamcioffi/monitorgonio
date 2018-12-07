@@ -13,7 +13,7 @@ function(input, output, session) {
 		stopApp(0)
 	})
 	
-	volumes <- c('file system' = "/")
+	volumes <- c('file system' = '/Users/')
 	shinyFiles::shinyFileChoose(input, 'logpath', roots = volumes, session = session)
 	output$path <- renderText({
 		getlogpath()
