@@ -74,6 +74,13 @@ and you should see hits appearing in the monitorgonio shiny window.
 ### one word of caution about ptts and csvs
 if you are opening these csv files in excel. if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
 
+```{r, echo = FALSE}
+# library(knitr)
+
+# t1 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1")
+# knitr::kable(t1)
+```
+
 |PTT|HEX|DEPLOYID|
 |----|----|----|
 |171171|1.23E+06|test1|
