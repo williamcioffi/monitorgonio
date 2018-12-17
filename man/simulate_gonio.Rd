@@ -6,6 +6,9 @@
 \usage{
 simulate_gonio(logfile)
 }
+\arguments{
+\item{logfile}{a file to output}
+}
 \description{
 simulate some gonio hits by spitting lines to a file a couple of seconds apart
 }

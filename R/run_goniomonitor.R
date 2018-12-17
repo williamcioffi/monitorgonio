@@ -2,6 +2,10 @@
 #'
 #' runs the shiny app monitorgonio
 #' @name run_monitorgonio
+#' @importFrom shiny runApp
+#' @importFrom shinyFiles shinyFileChoose
+#' @importFrom plotrix draw.circle
+#' @importFrom plotrix draw.radial.line
 #' @export
 #' @examples
 #' \dontrun{

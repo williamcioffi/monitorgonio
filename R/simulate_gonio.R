@@ -2,6 +2,7 @@
 #' 
 #' simulate some gonio hits by spitting lines to a file a couple of seconds apart
 #' @name simulate_gonio
+#' @param logfile a file to output
 #' @export
 #' @examples 
 #' \dontrun{
