@@ -1,7 +1,7 @@
 #' .bat shortcut for monitorgonio
 #' 
 #' automatically generates a .bat which should load monitorgonio successfully on windows
-#' @param ouputdir where to save the .bat file
+#' @param outfile where to save the .bat file
 #' @export
 
 make_bat_file <- function(outfile) {
