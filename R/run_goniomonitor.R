@@ -4,7 +4,9 @@
 #' @name run_monitorgonio
 #' @export
 #' @examples
+#' \dontrun{
 #' run_monitorgonio()
+#' }
 
 run_monitorgonio  <- function() {
 	shinydir <- system.file("shiny-guts", package = "monitorgonio")
@@ -12,3 +14,4 @@ run_monitorgonio  <- function() {
 
 	shiny::runApp(shinydir, display.mode = "normal", launch.browser = TRUE)
 }
+
