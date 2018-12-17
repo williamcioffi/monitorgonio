@@ -37,11 +37,10 @@ simulate_gonio <- function(logfile) {
     "2017-05-02 16:00:22 Received : $NPRF,9,17,5,2,16,0,22,0A1FBF2,401677546,7,185,197,-113,-113,-4538626,2153852,27,32,F2807ECF*3C"
   )
   
-  pb <- txtProgressBar(style = 3)
   for(i in 1:length(logsrc)) {
-  setTxtProgressBar(pb, i/length(logsrc))
     cat(paste0(logsrc[i], "\n"), file = logfile, append = TRUE)
     Sys.sleep(1.5)
   }
   close(pb)
 }
+
