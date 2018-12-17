@@ -4,10 +4,10 @@
 \alias{make_bat_file}
 \title{.bat shortcut for monitorgonio}
 \usage{
-make_bat_file(outfile = "~/Desktop/monitorgonio.bat")
+make_bat_file(outfile)
 }
 \arguments{
-\item{ouputdir}{where to save the .bat file}
+\item{outfile}{where to save the .bat file}
 }
 \description{
 automatically generates a .bat which should load monitorgonio successfully on windows

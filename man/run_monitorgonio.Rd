@@ -10,5 +10,7 @@ run_monitorgonio()
 runs the shiny app monitorgonio
 }
 \examples{
+\dontrun{
 run_monitorgonio()
+}
 }
