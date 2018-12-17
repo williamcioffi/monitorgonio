@@ -41,6 +41,5 @@ simulate_gonio <- function(logfile) {
     cat(paste0(logsrc[i], "\n"), file = logfile, append = TRUE)
     Sys.sleep(1.5)
   }
-  close(pb)
 }
 
