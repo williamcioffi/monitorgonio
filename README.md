@@ -25,3 +25,7 @@ you can run monitorgonio from an interactive r session or use `make_bat_file()` 
 monitorgonio::run_monitorgonio()
 ```
 
+![](docs/images/loaddata.png)
+
+
+![](docs/images/inaction.gif)
