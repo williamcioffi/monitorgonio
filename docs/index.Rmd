@@ -77,18 +77,14 @@ if you are opening these csv files in excel. if your hex has an E somewhere in t
 ```{r, echo = FALSE}
 # library(knitr)
 
-# t1 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1")
-# knitr::kable(t1)
+t1 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1")
+knitr::kable(t1, booktabs = TRUE)
 ```
-
-|PTT|HEX|DEPLOYID|
-|----|----|----|
-|171171|1.23E+06|test1|
 
 the best solution is don't use excel because it is a terrible csv editor. but many folks are most confortable with editing csvs in excel so in the past i've added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.
 
-|PTT|HEX|DEPLOYID|notes|
-|----|----|----|----|
-171171|1.23E+06|test1|hex is 12345E2|
-
+```{r, echo = FALSE}
+t2 <- cbind(t1, notes = "hex is 12345E2")
+knitr::kable(t2, booktabs = TRUE)
+```
 
