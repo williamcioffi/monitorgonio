@@ -5,7 +5,7 @@ output: html_document
 [repository](https://github.com/williamcioffi/monitorgonio) | [sattagutils](https://williamcioffi.github.io/sattagutils) | [io home](https://williamcioffi.github.io)
 
 ### monitorgonio
-a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. the Goniometer's screen is tiny, but it can be used in hyperterminal mode when connected to a laptop on the boat and writes output to a simple text file log. the shiny app just easedrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. in addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.
+a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. the Goniometer's screen is tiny, but it can be used in hyperterminal mode when connected to a laptop on the boat and writes output to a simple text file log. the shiny app just eavesdrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. in addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.
 
 **WARNING:** still very rough. use at own risk.
 
