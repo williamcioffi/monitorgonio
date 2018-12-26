@@ -9,7 +9,7 @@ Imports:
 	shinyFiles,
 	plotrix
 License: GPL-3
-URL: https://williamcioffi.github.io/monitorgonio
+URL: https://github.com/williamcioffi/monitorgonio
 BugReports: https://github.com/williamcioffi/monitorgonio/issues
 Encoding: UTF-8
 LazyData: true
