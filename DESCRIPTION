@@ -1,7 +1,7 @@
 Package: monitorgonio 
 Title: a quick hack for visualizing Argos Goniometer output in the field
 Version: 0.0.0.9000
-Authors@R: person("William R.", "Cioffi", email = "wrc14@duke.edu", role = c("aut", "cre"))
+Authors@R: person("William R.", "Cioffi", email = "wrc14@duke.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1182-8578"))
 Description: WARNING: this is still very rough. use at your own risk. Just a cobbled together shiny app for visualizing the direction and strength of a ptt using a laptop connected to an Argos Goniometer. It just eavesdrops on the log file. useful because the little handheld can be a pain to read on a bouncing boat.
 Depends: R (>= 3.5.1)
 Imports:
