@@ -6,7 +6,7 @@
 \alias{monitorgonio-package}
 \title{monitorgonio: a quick hack for visualizing Argos Goniometer output in the field}
 \description{
-WARNING: this is still very rough. use at your own risk. Just a cobbled together shiny app for visualizing the direction and strength of a ptt using a laptop connected to an Argos Goniometer. It just easedrops on the log file. useful because the little handheld can be a pain to read on a bouncing boat.
+WARNING: this is still very rough. use at your own risk. Just a cobbled together shiny app for visualizing the direction and strength of a ptt using a laptop connected to an Argos Goniometer. It just eavesdrops on the log file. useful because the little handheld can be a pain to read on a bouncing boat.
 }
 \details{
 you probably want to start by looking at \code{\link[monitorgonio]{run_monitorgonio}}.
