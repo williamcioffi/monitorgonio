@@ -5,13 +5,6 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 
 **WARNING:** still very rough. use at own risk.
 
-### feature requests
-- when add a new ptt the old ptts still keep there own colors.
-- color fades away so old hits eventually disapear
-- ability to filter by ptt
-- play a sound when there is a new hit
-- should make this a package which can export the batch script automatically? is that a bad practice?
-
 ### ultra quick guide
 install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`.
 
