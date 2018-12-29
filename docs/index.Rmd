@@ -4,40 +4,56 @@ output: html_document
 
 [repository](https://github.com/williamcioffi/monitorgonio) | [sattagutils](https://williamcioffi.github.io/sattagutils) | [io home](https://williamcioffi.github.io)
 
-### monitorgonio
-a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. the Goniometer's screen is tiny, but it can be used in hyperterminal mode when connected to a laptop on the boat and writes output to a simple text file log. the shiny app just eavesdrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. in addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.
+# monitorgonio
+## Argos Goniometer
+The Woods Hole Group (formerly CLS America) rents and sells an antenna and receiver that they call the [Argos Goniometer](https://www.clsamerica.com/argos-Goniometer). This machine can pick up and directionalize Argos PTTs and even downloads messages.
 
-**WARNING:** still very rough. use at own risk.
+We set up our Goniometer to run in hyperterminal mode connected to a laptop on the boat. Basically this spits the Goniometer log out to a text file. There are a couple of different types of text that are displayed in that log but it is mostly comma separated values.
 
-[![monitorgonio screenshot](images/inaction.gif)](ss.html)
+## The package
+This package is a quick hack to display Goniometer output in a user friendly display using `shiny`. The Goniometer's screen is tiny, but as mentioned above the hyperterminal mode when connected to a laptop outputs all data to a simple text log file. The shiny app just eavesdrops on this log and uses a key file you load in (csv) to match PTT (hex codes) and display only your platforms of interest. In addition, the program displays the bearing visually on a compass face (circle) and in a table, which is easier to read than the stock software.
 
-### quick guide
-install the package. dependencies are `shiny`, `shinyFiles`, `plotrix`.
-
-```{r, eval = FALSE}
-devtools::install_github("monitorgonio")
+```{r monitorgonio-inaction, echo = FALSE, out.width = '90%', fig.cap='Monitorgonio display tab showing simulated behavior in the field.'}
+inactionimagefile <- "images/inaction.gif"
+if(knitr::is_latex_output()) inactionimagefile <- "images/inaction.png"
+knitr::include_graphics(inactionimagefile)
 ```
 
-you can run monitorgonio from an interactive r session:
+## Obligatory warnings
+This package is still very rough so use it at your own risk. It might crash and then you miss an important PTT.
+
+## Quick guide
+The package isn't on cran yet so you'll have to install it from the github repo. Either directly or by using `devtools`. The dependencies are `shiny`, `shinyFiles`, and `plotrix`.
+
+
+```{r, eval = FALSE}
+devtools::install_github("williamcioffi/monitorgonio")
+```
+
+You can run monitorgonio from an interactive r session:
 
 ```{r, eval = FALSE}
 monitorgonio::run_monitorgonio()
 ```
 
-or you can automatically generate monitorgonio.bat which will run the shiny app for you.
+Or you can automatically generate monitorgonio.bat which will run the shiny app for you. I hope with the right paths. Be careful for some reason on windows '~' is interpreted as documents or the onedrive... 
 
 ```{r, eval = FALSE}
 monitorgonio::make_bat_file("monitorgonio.bat")
 ```
 
-be careful for some reason on windows '~' is interpreted as documents or the onedrive... You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. you can get an example template and save it for editing in your favorite editor.
+```{r monitorgonio-loaddata, echo = FALSE, out.width = '90%', fig.cap='Monitorgonio\'s data loading screen and instructions.'}
+knitr::include_graphics("images/loaddata.png")
+```
+
+You'll also have to create a ptt key file (CSV) so monitor gonio knows what to listen for. You can get an example template which comes as a dataframe in the package and save it for editing in your favorite editor.
 
 ```{r}
 # a template pttkey comes with the package
 data(pttkey, package = "monitorgonio")
 pttkey
 ```
-you can also construct one easily in R and save it as a csv.
+You can also construct one easily in R and save it as a csv.
 
 ```{r, eval = FALSE}
 pttkey <- data.frame(
@@ -50,41 +66,40 @@ pttkey <- data.frame(
 write.table(pttkey, file = "pttkey.csv", sep = ",", row.names = FALSE)
 ```
 
-note: you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it.
+Note: you don't really need the PTT column which is for the decimal PTT, unless you just want to keep track of it on the screen. What the Goniometer actually receives is the hex.
 
-### testing 
-you can test monitorgonio a bit even if you don't have a Goniometer connected or a platform handy. to do this you'll need two instances of R open. either start monitor gonio with the .bat script, or start it with ```run_monitorgonio()``` and then open a new instance of R.
+## Testing
+You can test monitorgonio a bit even if you don't have a Goniometer connected or a platform handy. To do this you'll need two instances of R open. Either start monitor gonio with the .bat script, or start it with `run_monitorgonio()` and then open a new instance of R.
 
-in this new instance of R first you'll need to save the pttkey from above. save it anywhere you like just remember the path. Next we'll need a simulated log file. we'll use a function in a moment to append to the log file as if hits were comming in one by one on the Goniometer. but for now you can just create an empty file:
+In this new instance of R first you'll need to save the pttkey from above. Save it anywhere you like just remember the path. Next we'll need a simulated log file. We'll use a function in a moment to append to the log file as if hits were coming in one by one on the Goniometer, but for now you can just create an empty file:
 
 ```{r, eval = FALSE}
 cat("", file = "testlog")
 ```
 
-now make sure monitorgonio is running and go to the shiny window and select both the log file and the pttkey using the buttons and navigating to where you saved them.
+Now make sure monitorgonio is running and go to the shiny window and select both the log file and the pttkey using the buttons and navigating to where you saved them.
 
-finally run the test with: 
+Finally, run the test with: 
 
 ```{r, eval = FALSE} 
 monitorgonio::simulate_gonio("testlog")
 ```
 
-and you should see hits appearing in the monitorgonio shiny window.
+...and you should see hits appearing in the monitorgonio shiny window.
 
-### one word of caution about ptts and csvs
-if you are opening these csv files in excel. if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into 12345  x 10^2 by excel. this is quite annoying and will happen every time you open the file. it'll look something like this:
+## One word of caution about ptts and csvs
+If you are opening these csv files in excel and if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into $12345 \cdot 10^2$ by excel. This is quite annoying and will happen every time you open the file. It'll look something like this:
 
 ```{r, echo = FALSE}
 # library(knitr)
 
 t1 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1")
-knitr::kable(t1, booktabs = TRUE)
+knitr::kable(t1, caption = "The perils of excel and hex", booktabs = TRUE)
 ```
 
-the best solution is don't use excel because it is a terrible csv editor. but many folks are most confortable with editing csvs in excel so in the past i've added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.
+The best solution is don't use excel because it is a terrible csv editor. But many folks are most comfortable with editing csvs in excel so in the past I've added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.
 
 ```{r, echo = FALSE}
-t2 <- cbind(t1, notes = "hex is 12345E2")
-knitr::kable(t2, booktabs = TRUE)
+t2 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1", notes = "hex is 12345E2")
+knitr::kable(t2, caption = "Put a notes column and copy and paste hexes back in that might get ruined by excel", booktabs = TRUE)
 ```
-
