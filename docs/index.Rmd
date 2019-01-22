@@ -90,16 +90,12 @@ monitorgonio::simulate_gonio("testlog")
 ## One word of caution about ptts and csvs
 If you are opening these csv files in excel and if your hex has an E somewhere in the middle and all the other digits are numbers (not letters) then excel will interpret it as scientific notation. For example 12345E2 will be converted into $12345 \cdot 10^2$ by excel. This is quite annoying and will happen every time you open the file. It'll look something like this:
 
-```{r, echo = FALSE}
-# library(knitr)
-
-t1 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1")
-knitr::kable(t1, caption = "The perils of excel and hex", booktabs = TRUE)
+```{r excel-badhex, echo = FALSE, out.width = '90%', fig.cap='The perils of excel and hex.'}
+knitr::include_graphics("images/badhex.png")
 ```
 
 The best solution is don't use excel because it is a terrible csv editor. But many folks are most comfortable with editing csvs in excel so in the past I've added a notes column that starts with text so the real hex can be recovered if someone accidentally edits it in excel and saves the result.
 
-```{r, echo = FALSE}
-t2 <- data.frame(PTT = "171171", HEX = "1.23E+06", DEPLOYID = "test1", notes = "hex is 12345E2")
-knitr::kable(t2, caption = "Put a notes column and copy and paste hexes back in that might get ruined by excel", booktabs = TRUE)
+```{r excel-savedhex, echo = FALSE, out.width = '90%', fig.cap='Put a notes column and copy and paste hexes back in that might get ruined by excel.'}
+knitr::include_graphics("images/savedhex.png")
 ```
