@@ -9,7 +9,7 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`.
 
 ```r
-devtools::install_github("monitorgonio")
+devtools::install_github("williamcioffi/monitorgonio")
 ```
 
 you can run monitorgonio from an interactive r session or use `make_bat_file()` to make a shortcut.
