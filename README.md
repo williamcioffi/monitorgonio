@@ -49,11 +49,6 @@ addition, the program displays the bearing visually on a compass face
 (circle) and in a table, which is easier to read than the stock
 software.
 
-<img src="docs/docs/images/inaction.gif" alt="Monitorgonio display tab showing simulated behavior in the field." width="90%" />
-<p class="caption">
-Monitorgonio display tab showing simulated behavior in the field.
-</p>
-
 Obligatory warnings
 -------------------
 
