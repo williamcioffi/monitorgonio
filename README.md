@@ -1,9 +1,9 @@
 ### monitorgonio
 a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. 
 
-[quick guide](https://williamcioffi.github.io/monitorgonio) to installing and getting started.
+see ultra quick guide and regular quick guide by scrolling down.
 
-**WARNING:** still very rough. use at own risk.
+interested in contributing? take a quick peak at the [guidelines](CONTRIBUTING.md).
 
 ### ultra quick guide
 install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`. scroll down for more details.
