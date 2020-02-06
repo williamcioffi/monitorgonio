@@ -4,9 +4,9 @@
 \name{monitorgonio-package}
 \alias{monitorgonio}
 \alias{monitorgonio-package}
-\title{monitorgonio: a quick hack for visualizing Argos Goniometer output in the field}
+\title{monitorgonio: visualize Argos Goniometer output in the field}
 \description{
-WARNING: this is still very rough. use at your own risk. Just a cobbled together shiny app for visualizing the direction and strength of a ptt using a laptop connected to an Argos Goniometer. It just eavesdrops on the log file. useful because the little handheld can be a pain to read on a bouncing boat.
+A shiny app for visualizing the direction and strength of a ptt using a laptop connected to an Argos Goniometer. It just eavesdrops on the log file. Can be useful because the little handheld can be a pain to read on a bouncing boat.
 }
 \details{
 you probably want to start by looking at \code{\link[monitorgonio]{run_monitorgonio}}.
@@ -14,13 +14,13 @@ you probably want to start by looking at \code{\link[monitorgonio]{run_monitorgo
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://williamcioffi.github.io/monitorgonio}
+  \item \url{https://github.com/williamcioffi/monitorgonio}
   \item Report bugs at \url{https://github.com/williamcioffi/monitorgonio/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: William R. Cioffi \email{wrc14@duke.edu}
+\strong{Maintainer}: William R. Cioffi \email{wrc14@duke.edu} (\href{https://orcid.org/0000-0003-1182-8578}{ORCID})
 
 }
 \keyword{internal}
