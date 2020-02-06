@@ -1,12 +1,15 @@
 ### monitorgonio
-a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. 
-
-see ultra quick guide and regular quick guide by scrolling down.
-
-interested in contributing? take a quick peak at the [guidelines](CONTRIBUTING.md).
-
 [![DOI](https://zenodo.org/badge/126085789.svg)](https://zenodo.org/badge/latestdoi/126085789)
-please cite as:  Cioffi WR (2020). monitorgonio: visualize Argos Goniometer output in the field. R package version 0.1.0. https://github.com/williamcioffi/monitorgonio. (doi:10.5281/zenodo.3647687)
+
+* a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goniometer) output in a user friendly display using `shiny`. 
+
+* see ultra quick guide and regular quick guide by scrolling down.
+
+* interested in contributing? take a quick peak at the [guidelines](CONTRIBUTING.md).
+
+* please cite as: 
+
+Cioffi WR (2020). monitorgonio: visualize Argos Goniometer output in the field. R package version 0.1.0. https://github.com/williamcioffi/monitorgonio. (doi:10.5281/zenodo.3647687)
 
 ### ultra quick guide
 install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`. scroll down for more details.
