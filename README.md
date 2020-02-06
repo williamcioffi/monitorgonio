@@ -3,7 +3,7 @@ a quick hack to display [Argos Goniometer](https://www.clsamerica.com/argos-goni
 
 see ultra quick guide and regular quick guide by scrolling down.
 
-interested in contributing? take a quick peak at the [guidelines][CONTRIBUTING.md].
+interested in contributing? take a quick peak at the [guidelines](CONTRIBUTING.md).
 
 ### ultra quick guide
 install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`. scroll down for more details.
