@@ -9,6 +9,6 @@ citEntry(
   url      = "https://github.com/williamcioffi/monitorgonio",
   doi      = "10.5281/zenodo.3647687",
   textVersion = paste(
-    "Cioffi WR (2020). monitorgonio: visualize Argos Goniometer output in the field. R package version 0.1.0. https://github.com/williamcioffi/monitorgonio. (doi:10.5281/zenodo.3647687)"
+    "Cioffi WR (2020). monitorgonio: visualize Argos Goniometer output in the field. R package version 0.1.0. https://github.com/williamcioffi/monitorgonio. (doi:10.5281/zenodo.3647686)"
   )
 )
