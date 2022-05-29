@@ -15,7 +15,7 @@ Cioffi WR (2020). monitorgonio: visualize Argos Goniometer output in the field. 
 install the package. dependencies are `shiny`, `shinyFiles`, and `plotrix`. scroll down for more details.
 
 ```r
-devtools::install_github("williamcioffi/monitorgonio")
+remotes::install_github("williamcioffi/monitorgonio")
 ```
 
 you can run monitorgonio from an interactive r session or use `make_bat_file()` to make a shortcut.
@@ -65,11 +65,11 @@ Quick guide
 -----------
 
 The package isn’t on cran yet so you’ll have to install it from the
-github repo. Either directly or by using `devtools`. The dependencies
+github repo. Either directly or by using `remotes` (or `devtools`). The dependencies
 are `shiny`, `shinyFiles`, and `plotrix`.
 
 ``` r
-devtools::install_github("williamcioffi/monitorgonio")
+remotes::install_github("williamcioffi/monitorgonio")
 ```
 
 You can run monitorgonio from an interactive r session:
