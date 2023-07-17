@@ -21,7 +21,7 @@ readgonio <- function(gfile) {
     writeLines(g_npr, npr_file)
     npr <- read.csv(npr_file, header = FALSE, sep = ',')
     # add dummy columns for the saved average strength and average bearing columns for NPR (this only works on NPRF)
-    npr_withcols <- data.frame(npr[, 1:12], rep(NA, nrow(npr)), npr[, 13], rep(NA, nrow(npr)), npr[, 14:ncol(npr)])
+    npr_withcols <- data.frame(npr[, 1:12], rep(NA, nrow(npr)), rep(NA, nrow(npr)), npr[, 13], rep(NA, nrow(npr)), npr[, 14:ncol(npr)])
     names(npr_withcols) <- paste0("V", 1:20)
   }
   
@@ -39,10 +39,10 @@ readgonio <- function(gfile) {
     rec_date_formatted <- sapply(rec_date_split, function(l) paste(l[1], l[2]))
     
     allg$V1 <- rec_date_formatted
-    names(allg)[c(1, 9, 12, 14)] <- c("date", "hex", "bearing", "strength")
+    names(allg)[c(1, 9, 12, 15)] <- c("date", "hex", "bearing", "strength")
     oo <- order(allg$date, decreasing = TRUE)
     
-    allg <- allg[oo, c(1, 9, 12, 14)]
+    allg <- allg[oo, c(1, 9, 12, 15)]
   }
   
   allg
