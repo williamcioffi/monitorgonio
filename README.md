@@ -1,3 +1,5 @@
+BETA TEST FOR VERSION 2 OF SOFTWARE
+
 ### monitorgonio
 [![DOI](https://zenodo.org/badge/126085789.svg)](https://zenodo.org/badge/latestdoi/126085789)
 
