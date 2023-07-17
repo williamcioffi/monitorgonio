@@ -21,7 +21,7 @@ readgonio <- function(gfile) {
     writeLines(g_npr, npr_file)
     npr <- read.csv(npr_file, header = FALSE, sep = ',')
     # add dummy columns for the saved average strength and average bearing columns for NPR (this only works on NPRF)
-    npr_withcols <- data.frame(npr[, 1:12], rep(NA, nrow(npr)), rep(NA, nrow(npr)), npr[, 13], rep(NA, nrow(npr)), npr[, 14:ncol(npr)])
+    npr_withcols <- data.frame(npr[, 1:6], rep(NA, nrow(npr)), npr[, 7:11], rep(NA, nrow(npr)), rep(NA, nrow(npr)), npr[, 12], rep(NA, nrow(npr)), npr[, 13:ncol(npr)])
     names(npr_withcols) <- paste0("V", 1:20)
   }
   
