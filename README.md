@@ -1,3 +1,6 @@
+# there is a new branch called vers2 that works with the version 2 format
+this is a quick fix, i'll make a better solution at some point
+
 ### monitorgonio
 [![DOI](https://zenodo.org/badge/126085789.svg)](https://zenodo.org/badge/latestdoi/126085789)
 
